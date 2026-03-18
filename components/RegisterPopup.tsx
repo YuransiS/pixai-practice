@@ -61,6 +61,9 @@ export default function RegisterPopup() {
       const isPlaceholder = webhookUrl.includes("ВАША_ССЫЛКА");
 
       if (webhookUrl && !isPlaceholder && webhookUrl.startsWith("http")) {
+        // Parse UTM parameters
+        const searchParams = new URLSearchParams(window.location.search);
+        
         await fetch(webhookUrl, {
           method: "POST",
           mode: "no-cors", // Useful for Google Scripts
@@ -71,6 +74,12 @@ export default function RegisterPopup() {
             name,
             telegram,
             phone,
+            utm_source: searchParams.get('utm_source') || '',
+            utm_medium: searchParams.get('utm_medium') || '',
+            utm_campaign: searchParams.get('utm_campaign') || '',
+            utm_content: searchParams.get('utm_content') || '',
+            utm_term: searchParams.get('utm_term') || '',
+            page_url: window.location.href,
             source: "Hero Popup",
             date: new Date().toLocaleString("uk-UA", { timeZone: "Europe/Kyiv" }),
           }),
