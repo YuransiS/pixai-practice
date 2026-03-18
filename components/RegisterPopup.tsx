@@ -10,7 +10,6 @@ import { usePopupStore } from "../store/popupStore";
 export default function RegisterPopup() {
   const { isOpen, closePopup } = usePopupStore();
   const [name, setName] = useState("");
-  const [telegram, setTelegram] = useState("");
   const [phone, setPhone] = useState<string | undefined>();
   const [country, setCountry] = useState<any>("UA");
   const [error, setError] = useState("");
@@ -42,10 +41,7 @@ export default function RegisterPopup() {
       return;
     }
 
-    if (!telegram.trim()) {
-      setError("Введіть ваш Telegram нікнейм");
-      return;
-    }
+
 
     if (!phone || !isValidPhoneNumber(phone)) {
       setError("Введіть коректний номер телефону");
@@ -55,39 +51,7 @@ export default function RegisterPopup() {
     setIsSubmitting(true);
 
     try {
-      // Create FormData or JSON for the webhook
-      const webhookUrl = process.env.NEXT_PUBLIC_GOOGLE_SHEETS_WEBHOOK_URL || "";
-      
-      const isPlaceholder = webhookUrl.includes("ВАША_ССЫЛКА");
-
-      if (webhookUrl && !isPlaceholder && webhookUrl.startsWith("http")) {
-        // Parse UTM parameters
-        const searchParams = new URLSearchParams(window.location.search);
-        
-        await fetch(webhookUrl, {
-          method: "POST",
-          mode: "no-cors", // Useful for Google Scripts
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            name,
-            telegram,
-            phone,
-            utm_source: searchParams.get('utm_source') || '',
-            utm_medium: searchParams.get('utm_medium') || '',
-            utm_campaign: searchParams.get('utm_campaign') || '',
-            utm_content: searchParams.get('utm_content') || '',
-            utm_term: searchParams.get('utm_term') || '',
-            page_url: window.location.href,
-            source: "Hero Popup",
-            date: new Date().toLocaleString("uk-UA", { timeZone: "Europe/Kyiv" }),
-          }),
-        });
-      } else {
-        console.warn("Webhook URL is missing or is a placeholder. Simulation mode.");
-        await new Promise(resolve => setTimeout(resolve, 1000));
-      }
+      // Webhook submission to Google Sheets removed as requested
 
       // 1. Trigger Pixel Lead Event
       if (typeof window !== "undefined" && (window as any).fbq) {
@@ -170,18 +134,7 @@ export default function RegisterPopup() {
                 />
               </div>
 
-              {/* Telegram */}
-              <div className="flex flex-col gap-1.5">
-                <label className="text-sm font-medium text-white/90">Telegram нікнейм</label>
-                <input
-                  type="text"
-                  placeholder="@username"
-                  value={telegram}
-                  onChange={(e) => setTelegram(e.target.value)}
-                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder:text-white/30 focus:outline-none focus:border-accent-primary focus:ring-1 focus:ring-accent-primary/50 transition-all font-sans"
-                  disabled={isSubmitting}
-                />
-              </div>
+
 
               {/* Phone */}
               <div className="flex flex-col gap-1.5">
