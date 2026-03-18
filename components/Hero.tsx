@@ -76,7 +76,7 @@ export default function Hero() {
           >
             <span className="w-2 h-2 md:w-2.5 md:h-2.5 rounded-full bg-accent-primary animate-pulse shadow-[0_0_8px_#ce103e]" />
             <span className="text-[9px] sm:text-sm font-semibold tracking-wide text-white uppercase">
-              Безкоштовний онлайн-практикум | Четвер, 19:00
+              Безкоштовний онлайн-практикум | 26 березня
             </span>
           </motion.div>
 
