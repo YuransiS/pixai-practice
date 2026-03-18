@@ -188,9 +188,6 @@ function CtaBlock({ variants }: { variants: any }) {
         <span className="absolute inset-0 -translate-x-[150%] group-hover:animate-[shimmer_1.5s_infinite] bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-12" />
         <span className="relative z-10 w-full block text-center whitespace-nowrap">ЗАРЕЄСТРУВАТИСЯ БЕЗКОШТОВНО</span>
       </motion.button>
-      <p className="text-[11px] sm:text-xs md:text-sm text-white/80 md:text-text-muted font-medium text-center md:text-left drop-shadow-md">
-        🎁 Бонус після реєстрації: PDF-гайд «Топ нейромереж для відео»
-      </p>
     </motion.div>
   );
 }

@@ -50,7 +50,7 @@ export default function FooterCTA() {
           </h2>
           
           <p className="text-text-muted text-lg md:text-xl max-w-2xl px-4">
-            Забирай своє місце на ефірі та отримай PDF-гайд у подарунок одразу після підтвердження реєстрації в боті.
+            Забирай своє місце на ефірі та приєднуйся до закритої спільноти одразу після реєстрації.
           </p>
 
           <div className="mt-8 w-full px-4 sm:px-0 flex justify-center">
@@ -74,7 +74,7 @@ export default function FooterCTA() {
               >
                 {/* Looping Sweep effect inside button */}
                 <span className="absolute inset-0 -translate-x-[150%] animate-[shimmer_2.5s_infinite] bg-gradient-to-r from-transparent via-white/40 to-transparent skew-x-12 z-0" />
-                <span className="relative z-10 w-full text-center block">ЗАРЕЄСТРУВАТИСЯ ТА ЗАБРАТИ БОНУС</span>
+                <span className="relative z-10 w-full text-center block">ЗАРЕЄСТРУВАТИСЯ БЕЗКОШТОВНО</span>
               </motion.button>
             </motion.div>
           </div>
