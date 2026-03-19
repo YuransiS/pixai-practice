@@ -15,7 +15,7 @@ export default function RegisterPopup() {
   const [error, setError] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // Default to IP based country
+  // Default to IP based country and capture UTMs
   useEffect(() => {
     if (isOpen) {
       fetch("https://ipapi.co/json/")
@@ -26,7 +26,6 @@ export default function RegisterPopup() {
           }
         })
         .catch(() => {
-          // Fallback to UA if it fails
           setCountry("UA");
         });
     }
@@ -41,8 +40,6 @@ export default function RegisterPopup() {
       return;
     }
 
-
-
     if (!phone || !isValidPhoneNumber(phone)) {
       setError("Введіть коректний номер телефону");
       return;
@@ -51,28 +48,53 @@ export default function RegisterPopup() {
     setIsSubmitting(true);
 
     try {
-      // Webhook submission to Google Sheets removed as requested
+      // 1. Prepare data for Google Sheets
+      const urlParams = new URLSearchParams(window.location.search);
+      const payload = {
+        name,
+        phone,
+        source: "Hero Popup",
+        utm_source: urlParams.get("utm_source") || "",
+        utm_medium: urlParams.get("utm_medium") || "",
+        utm_campaign: urlParams.get("utm_campaign") || "",
+        utm_term: urlParams.get("utm_term") || "",
+        utm_content: urlParams.get("utm_content") || "",
+        page_url: window.location.href
+      };
 
-      // 1. Trigger Pixel Lead Event
+      // 2. Submit to Google Sheets Webhook
+      const webhookUrl = process.env.NEXT_PUBLIC_GOOGLE_SHEETS_WEBHOOK_URL;
+      if (webhookUrl && !webhookUrl.includes("ВАША_ССЫЛКА")) {
+        await fetch(webhookUrl, {
+          method: "POST",
+          mode: "no-cors", 
+          headers: {
+            "Content-Type": "text/plain", // Safer for CORS/GAS
+          },
+          body: JSON.stringify(payload),
+        });
+      } else {
+        console.warn("Google Sheets Webhook URL is missing in .env.local");
+      }
+
+      // 3. Trigger Pixel Lead Event
       if (typeof window !== "undefined" && (window as any).fbq) {
         (window as any).fbq("track", "Lead");
       }
 
-      // 2. Redirect to Telegram bot
+      // 4. Redirect to Telegram bot
       window.location.href = "https://t.me/valeria_pixai_bot?start=69baa1fface11cd6b505834a";
       
     } catch (err: any) {
       console.error("Webhook submission error:", err);
-      // Even if webhook fails, we redirect them to the funnel to not lose the lead
-      // Or you can choose to show an error and stop.
-      if (typeof window !== "undefined" && (window as any).fbq) {
-        (window as any).fbq("track", "Lead");
-      }
       window.location.href = "https://t.me/valeria_pixai_bot?start=69baa1fface11cd6b505834a";
     } finally {
       setIsSubmitting(false);
     }
   };
+
+
+
 
   const overlayVariants = {
     hidden: { opacity: 0 },
@@ -133,6 +155,8 @@ export default function RegisterPopup() {
                   disabled={isSubmitting}
                 />
               </div>
+
+
 
 
 
