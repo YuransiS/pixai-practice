@@ -1,8 +1,38 @@
+// ==========================================
+// НАЛАШТУВАННЯ
+// ==========================================
+
+// ЯКЩО СКРИПТ НЕ ПРИВ'ЯЗАНИЙ ДО ТАБЛИЦІ (Standalone):
+// 1. Відкрийте вашу Google Таблицю
+// 2. Скопіюйте ID з URL (між /d/ та /edit)
+// 3. Вставте його сюди:
+var SPREADSHEET_ID = ""; // ПРИКЛАД: "1a2b3c4d5e6f7g8h9i0j"
+
+// ==========================================
+// ОСНОВНА ЛОГІКА
+// ==========================================
+
+function doGet(e) {
+  return ContentService.createTextOutput(JSON.stringify({
+    "status": "online",
+    "message": "API is working. Send POST request to add leads."
+  })).setMimeType(ContentService.MimeType.JSON);
+}
+
 function doPost(e) {
-    var ss = SpreadsheetApp.getActiveSpreadsheet();
-    var sheetName = "Practicum_Leads"; // Default
-    
+    var ss = null;
     try {
+        // Пробуємо отримати таблицю
+        if (SPREADSHEET_ID && SPREADSHEET_ID !== "") {
+          ss = SpreadsheetApp.openById(SPREADSHEET_ID);
+        } else {
+          ss = SpreadsheetApp.getActiveSpreadsheet();
+        }
+        
+        if (!ss) {
+            throw new Error("Не вдалося знайти таблицю. Вкажіть SPREADSHEET_ID у коді скрипта.");
+        }
+
         var data = {};
         if (e && e.postData && e.postData.contents) {
             try {
@@ -14,16 +44,12 @@ function doPost(e) {
             data = e.parameter || {};
         }
 
-        if (!ss) {
-            throw new Error("Скрипт не прив'язаний до таблиці. Використовуйте 'File > Project Settings' або прив'яжіть через контейнер.");
-        }
-
         var timestamp = new Date();
         var formattedDate = Utilities.formatDate(timestamp, ss.getSpreadsheetTimeZone() || "GMT+2", "dd.MM.yyyy HH:mm:ss");
 
         // Визначаємо тип ліда по source або type
         var isPracticum = (data.source === "Hero Popup" || data.type === "practicum");
-        sheetName = isPracticum ? "Practicum_Leads" : "Valeria_VSL_Leads";
+        var sheetName = isPracticum ? "Practicum_Leads" : "Valeria_VSL_Leads";
         
         var sheet = ss.getSheetByName(sheetName);
 
@@ -55,11 +81,12 @@ function doPost(e) {
         }
 
         sheet.appendRow(rowData);
-
+        SpreadsheetApp.flush(); // Гарантуємо запис
 
         return ContentService.createTextOutput(JSON.stringify({
             "status": "success",
-            "message": "Lead added to " + sheetName
+            "message": "Lead added to " + sheetName,
+            "data_received": data
         })).setMimeType(ContentService.MimeType.JSON);
 
     } catch (error) {
@@ -73,9 +100,11 @@ function doPost(e) {
 
         return ContentService.createTextOutput(JSON.stringify({
             "status": "error",
-            "message": error.toString()
+            "message": error.toString(),
+            "stack": error.stack
         })).setMimeType(ContentService.MimeType.JSON);
     }
 }
+
 
 

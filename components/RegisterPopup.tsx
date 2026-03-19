@@ -62,19 +62,24 @@ export default function RegisterPopup() {
         page_url: window.location.href
       };
 
+      console.log("Submitting lead to Google Sheets...", payload);
+
       // 2. Submit to Google Sheets Webhook
       const webhookUrl = process.env.NEXT_PUBLIC_GOOGLE_SHEETS_WEBHOOK_URL;
+      
       if (webhookUrl && !webhookUrl.includes("ВАША_ССЫЛКА")) {
+        console.log("Using Webhook URL:", webhookUrl);
         await fetch(webhookUrl, {
           method: "POST",
           mode: "no-cors", 
           headers: {
-            "Content-Type": "text/plain", // Safer for CORS/GAS
+            "Content-Type": "text/plain",
           },
           body: JSON.stringify(payload),
         });
+        console.log("Fetch request sent (no-cors mode)");
       } else {
-        console.warn("Google Sheets Webhook URL is missing in .env.local");
+        console.warn("Google Sheets Webhook URL is missing or placeholder! Check .env or Vercel settings.");
       }
 
       // 3. Trigger Pixel Lead Event
@@ -83,7 +88,10 @@ export default function RegisterPopup() {
       }
 
       // 4. Redirect to Telegram bot
-      window.location.href = "https://t.me/valeria_pixai_bot?start=69baa1fface11cd6b505834a";
+      // Give the fetch a tiny bit of time to settle before redirecting
+      setTimeout(() => {
+        window.location.href = "https://t.me/valeria_pixai_bot?start=69baa1fface11cd6b505834a";
+      }, 500);
       
     } catch (err: any) {
       console.error("Webhook submission error:", err);
@@ -91,6 +99,7 @@ export default function RegisterPopup() {
     } finally {
       setIsSubmitting(false);
     }
+
   };
 
 
