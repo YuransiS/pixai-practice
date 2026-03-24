@@ -45,12 +45,12 @@ export default function FooterCTA() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="flex flex-col items-center gap-8"
         >
-          <h2 className="font-heading text-4xl sm:text-5xl md:text-7xl font-bold text-white uppercase leading-tight drop-shadow-[0_0_15px_rgba(206,16,62,0.4)]">
-            Готові створити своє<br/>перше AI-відео?
+          <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-bold text-white uppercase leading-tight drop-shadow-[0_0_15px_rgba(206,16,62,0.4)]">
+            Готові згенерувати своє перше відео і дізнатися, як на цьому заробляти?
           </h2>
           
           <p className="text-text-muted text-lg md:text-xl max-w-2xl px-4">
-            Забирай своє місце на ефірі та приєднуйся до закритої спільноти одразу після реєстрації.
+            Займайте своє місце на практикумі та отримайте доступ до закритого каналу з корисними матеріалами
           </p>
 
           <div className="mt-8 w-full px-4 sm:px-0 flex justify-center">
@@ -74,7 +74,7 @@ export default function FooterCTA() {
               >
                 {/* Looping Sweep effect inside button */}
                 <span className="absolute inset-0 -translate-x-[150%] animate-[shimmer_2.5s_infinite] bg-gradient-to-r from-transparent via-white/40 to-transparent skew-x-12 z-0" />
-                <span className="relative z-10 w-full text-center block">ЙДУ ЗА НОВОЮ ПРОФЕСІЄЮ</span>
+                <span className="relative z-10 w-full text-center block">ЙДУ НА ПРАКТИКУМ</span>
               </motion.button>
             </motion.div>
           </div>

@@ -41,41 +41,14 @@ export default function AboutExpert() {
               <h2 className="text-accent-primary uppercase tracking-widest text-sm font-bold mb-2">
                 Хто проводить ефір?
               </h2>
-              <h3 className="font-heading text-6xl md:text-7xl lg:text-8xl font-black text-white uppercase drop-shadow-[0_0_15px_rgba(255,255,255,0.4)]">
-                Валерія
+              <h3 className="font-heading text-4xl md:text-5xl lg:text-6xl font-black text-white uppercase drop-shadow-[0_0_15px_rgba(255,255,255,0.4)] leading-tight">
+                Валерія — AI-креатор, чиї роботи збирають мільйони переглядів
               </h3>
             </div>
 
-            <div className="flex flex-col gap-6">
-              {/* Point A */}
-              <div className="p-6 rounded-2xl bg-white/[0.03] backdrop-blur-md border border-white/10 relative overflow-hidden">
-                <div className="absolute left-0 top-0 bottom-0 w-1 bg-white/20" />
-                <p className="text-text-muted text-lg relative z-10">
-                  <span className="text-white font-semibold block mb-1">ДО:</span> 9 років у б'юті-сфері. Своя студія, клієнти, але натомість — вигорання, кредити і повна залежність від фізичної праці (перестала пиляти нігті = перестала заробляти).
-                </p>
-              </div>
-
-              {/* Point B */}
-              <div className="p-6 rounded-2xl bg-white/[0.03] backdrop-blur-md border border-white/10 relative overflow-hidden">
-                <div className="absolute left-0 top-0 bottom-0 w-1 bg-white/20" />
-                <p className="text-text-muted text-lg relative z-10">
-                  <span className="text-white font-semibold block mb-1">ПЕРЕЛОМНИЙ МОМЕНТ:</span> Війна та декрет змінили все. Я опинилася в чужому місті з немовлям на руках. Я зрозуміла: стара професія мене не прогодує. Мені потрібна була робота, яка поміститься в телефоні.
-                </p>
-              </div>
-
-              {/* Point C */}
-              <div className="p-6 rounded-2xl bg-white/[0.03] backdrop-blur-md border border-accent-primary/30 relative overflow-hidden shadow-[0_0_20px_rgba(206,16,62,0.15)]">
-                <div className="absolute left-0 top-0 bottom-0 w-1 bg-accent-primary shadow-[0_0_10px_#ce103e]" />
-                <p className="text-white text-lg relative z-10 font-medium">
-                  <span className="text-accent-primary font-bold block mb-1">ПІСЛЯ:</span> Я пішла ва-банк у нейромережі. Сьогодні я — AI-креатор. Закрила кредити, працюю з дому, створюю ролики для брендів із чеками від $500 і веду блог на мільйони переглядів.
-                </p>
-              </div>
-            </div>
-
-            {/* Quote */}
             <div className="mt-4 border-l-4 border-accent-primary/80 pl-6 py-2">
               <p className="font-heading text-xl md:text-2xl italic text-white/90 leading-relaxed shadow-accent-primary drop-shadow-sm">
-                «Я доведу тобі, що штучний інтелект — це не вища математика. Це інструмент, який дає свободу та гроші мамі в декреті, якщо знати, на які кнопки тиснути».
+                «Ще недавно я 9 років працювала в б'юті-сфері, мала кредити і повну залежність від фізичної праці. Війна і декрет змінили все. Я пішла ва-банк у нейромережі. Сьогодні я створюю рекламні ролики для брендів із чеками від $500, просто натискаючи правильні кнопки на своєму пристрої. Я доведу, що у вас теж вийде»
               </p>
             </div>
           </motion.div>

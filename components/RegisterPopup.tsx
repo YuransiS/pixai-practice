@@ -210,7 +210,7 @@ export default function RegisterPopup() {
                   <>
                     <span className="absolute inset-0 -translate-x-[150%] animate-[shimmer_2s_infinite] bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-12 z-0" />
                     <span className="relative z-10 w-full text-center block">
-                      ПРОДОВЖИТИ
+                      ЙДУ НА ПРАКТИКУМ
                     </span>
                   </>
                 )}

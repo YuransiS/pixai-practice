@@ -10,7 +10,7 @@ export default function Portfolio() {
       url: "https://www.instagram.com/reel/DNtXHVu2N5r/",
       badge: <>👁 <span className="text-[#39ff14] drop-shadow-[0_0_5px_#39ff14]">1.2 млн</span> переглядів</>,
       title: "День Незалежності",
-      description: "Безкоштовний трафік без вкладень в рекламу."
+      description: "Безкоштовний трафік без вкладень в рекламу"
     },
     { 
       src: "/portfolio-2.mp4", 
@@ -18,7 +18,7 @@ export default function Portfolio() {
       url: "https://www.instagram.com/reel/DSo7ODTjKcI/",
       badge: "👁 945 000 переглядів",
       title: "Різдво та Історія",
-      description: "Оживлення минулого, яке збирає тисячі коментарів та підписників."
+      description: "Оживлення минулого, яке збирає тисячі коментарів та підписників"
     },
     { 
       src: "/portfolio-3.mp4", 
@@ -26,7 +26,7 @@ export default function Portfolio() {
       url: "https://www.instagram.com/reel/DTvQ_jLjIWj/",
       badge: <>💰 Чек: <span className="text-accent-primary drop-shadow-[0_0_5px_#ce103e]">$500</span></>,
       title: "Реклама для бренду сумок",
-      description: "Предметна зйомка без студій. Чиста комерція."
+      description: "Предметна зйомка без студій. Чиста комерція"
     },
   ];
 
@@ -50,7 +50,7 @@ export default function Portfolio() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-text-muted text-lg md:text-xl max-w-2xl mx-auto"
           >
-            Все це створено без студій, камер та акторів. Тільки ШІ.
+            Все це створено без студій, камер та акторів. Тільки ШІ
           </motion.p>
         </div>
 
