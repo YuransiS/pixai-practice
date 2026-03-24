@@ -89,11 +89,11 @@ export default function Hero() {
               variants={textRevealVariants}
               className="font-heading text-[26px] sm:text-5xl md:text-6xl lg:text-7xl font-bold text-text-main leading-[1.15] md:leading-tight tracking-tight uppercase"
             >
-              ЯК СТВОРЮВАТИ <br className="md:hidden" /> 
-              AI ВІДЕО ТА <br className="hidden md:block" />
-              <span className="whitespace-nowrap text-white">ЗАРОБЛЯТИ</span>
+              ПРОФЕСІЯ AI-КРЕАТОР: <br className="md:hidden" /> 
+              ЯК З НУЛЯ ВИЙТИ НА ДОХІД<br className="hidden md:block" />
+              <span className="whitespace-nowrap text-white">ВІД $1000/МІС</span>
               <span className="block text-accent-primary text-[18px] sm:text-2xl md:text-4xl mt-2 md:mt-4">
-                ВІД $500 ЗА ПАРУ КЛІКІВ
+                ПРАЦЮЮЧИ 2-3 ГОДИНИ НА ДЕНЬ (НАВІТЬ З ТЕЛЕФОНА)
               </span>
             </motion.h1>
           </div>
@@ -107,7 +107,7 @@ export default function Hero() {
               variants={textRevealVariants}
               className="text-text-main/90 md:text-text-muted text-sm sm:text-lg md:text-xl leading-snug md:leading-relaxed drop-shadow-md md:drop-shadow-none"
             >
-              Практичний розбір для новачків. Відкриваю екран і клік за кліком показую весь алгоритм. Ти побачиш, що робити комерційні ролики простіше, ніж ти думаєш.
+              Опануйте створення кіношних AI-відео та отримайте віддалену професію, яка звільнить вас від офісної рутини, важкої фізичної праці чи залежності від клієнтів. Без знання коду, ідеальної англійської та дорогого комп'ютера.
             </motion.p>
           </div>
           
@@ -186,7 +186,7 @@ function CtaBlock({ variants }: { variants: any }) {
         className="relative overflow-hidden group w-full sm:w-max px-4 py-4 md:px-8 md:py-5 rounded-xl md:rounded-2xl bg-accent-primary text-white font-heading font-bold text-[15px] sm:text-lg tracking-wide shadow-[0_0_30px_rgba(206,16,62,0.4)] transition-all duration-300 hover:shadow-[0_0_50px_rgba(206,16,62,0.8)]"
       >
         <span className="absolute inset-0 -translate-x-[150%] group-hover:animate-[shimmer_1.5s_infinite] bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-12" />
-        <span className="relative z-10 w-full block text-center whitespace-nowrap">ЗАРЕЄСТРУВАТИСЯ БЕЗКОШТОВНО</span>
+        <span className="relative z-10 w-full block text-center whitespace-nowrap">ЙДУ ЗА НОВОЮ ПРОФЕСІЄЮ</span>
       </motion.button>
     </motion.div>
   );

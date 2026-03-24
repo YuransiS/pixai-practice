@@ -74,7 +74,7 @@ export default function FooterCTA() {
               >
                 {/* Looping Sweep effect inside button */}
                 <span className="absolute inset-0 -translate-x-[150%] animate-[shimmer_2.5s_infinite] bg-gradient-to-r from-transparent via-white/40 to-transparent skew-x-12 z-0" />
-                <span className="relative z-10 w-full text-center block">ЗАРЕЄСТРУВАТИСЯ БЕЗКОШТОВНО</span>
+                <span className="relative z-10 w-full text-center block">ЙДУ ЗА НОВОЮ ПРОФЕСІЄЮ</span>
               </motion.button>
             </motion.div>
           </div>
