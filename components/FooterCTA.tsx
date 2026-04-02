@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { usePopupStore } from "../store/popupStore";
+import LiveStatus from "./LiveStatus";
 
 export default function FooterCTA() {
   const { openPopup } = usePopupStore();
@@ -52,6 +53,8 @@ export default function FooterCTA() {
           <p className="text-text-muted text-lg md:text-xl max-w-2xl px-4">
             Займайте своє місце на практикумі та отримайте доступ до закритого каналу з корисними матеріалами
           </p>
+
+          <LiveStatus />
 
           <div className="mt-8 w-full px-4 sm:px-0 flex justify-center">
             {/* Heartbeat animated wrapper */}

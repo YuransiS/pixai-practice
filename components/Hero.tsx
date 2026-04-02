@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Loader2 } from "lucide-react";
 import { usePopupStore } from "../store/popupStore";
+import LiveStatus from "./LiveStatus";
 
 export default function Hero() {
   const textRevealVariants = {
@@ -109,6 +110,10 @@ export default function Hero() {
             >
               Практичний розбір. Відкриваю екран і клік за кліком показую весь алгоритм. Ви власноруч згенеруєте своє перше відео прямо під час ефіру, маючи лише телефон
             </motion.p>
+          </div>
+
+          <div className="w-full md:mt-2 xl:mt-4">
+            <LiveStatus />
           </div>
           
           {/* Desktop CTA Placeholder */}
